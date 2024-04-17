@@ -13,7 +13,7 @@
 	 <!-- 커넥션풀을 쓸 수 있는 클래스 -->
 	 <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
 	 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-	 	<property name="url" value="jdbc:oracle:this:@localhost:1521:xe"/>
+	 	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 	 	<property name="username" value="spring"/>
 	 	<property name="password" value="spring"/>
 	 </bean>
