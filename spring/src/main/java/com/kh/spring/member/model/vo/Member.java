@@ -35,4 +35,5 @@ public class Member {
 	private Date enrollDate;
 	private Date modifyDate;
 	private String status;
+	private String address;
 }
