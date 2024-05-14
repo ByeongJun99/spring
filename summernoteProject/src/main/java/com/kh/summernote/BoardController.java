@@ -23,6 +23,7 @@ public class BoardController {
 	// 게시글 작성하기(화면)
 	@GetMapping("write")
 	public String write() {
+		System.out.println("????");
 		return "write";
 	}
 	
