@@ -225,7 +225,8 @@
                     data : data,
                     success : function(res){
                         callback(res)
-                    }, error(){
+                    },
+                    error(){
                         console.log("댓글 생성 ajax실패");
                     }
                 })
