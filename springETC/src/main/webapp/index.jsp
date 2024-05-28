@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	하잇
+	<jsp:forward page="WEB-INF/views/login.jsp"/>
 </body>
 </html>

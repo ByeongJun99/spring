@@ -7,17 +7,20 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	 
+	<context:property-placeholder location="classpath:application.properties" file-encoding="UTF-8"/>
+	 
   <!-- 커넥션풀을 쓸수있는 클래스 psql사용시 변경필요-->
   <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
- 	 <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
- 	 <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
- 	 <property name="username" value="spring"/>
- 	 <property name="password" value="spring"/>
+ 	 <property name="driverClassName" value="${jdbc.driverClassName}"/>
+ 	 <property name="url" value="${jdbc.url}"/>
+ 	 <property name="username" value="${jdbc.username}"/>
+ 	 <property name="password" value="${jdbc.password}"/>
   </bean>
 	  
   <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
   	<property name="configLocation" value="classpath:mybatis-config.xml"/>
   	<property name="dataSource" ref="dataSource"/>
+  	
   </bean>
    
   <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
@@ -36,14 +39,14 @@
 	</context:component-scan>
 	
 	<bean id="sender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com"/>
-		<property name="port" value="587"/>
-		<property name="username" value="qndqnd2232@gmail.com"/>
-		<property name="password" value="valj byew inhi bqtz"/>
+		<property name="host" value="${mail.smtp.host}"/>
+		<property name="port" value="${mail.smtp.port}"/>
+		<property name="username" value="${mail.smtp.username}"/>
+		<property name="password" value="${mail.smtp.password}"/>
 		<property name="javaMailProperties">
 			<props>
-				<prop key="mail.smtp.auth">true</prop>
-				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
 			</props>
 		</property>
 	</bean>
