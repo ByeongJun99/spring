@@ -7,7 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>로그인</h1>
+	<form action="login" method="post">
+		<input type="text" name="nick">
+		<input type="submit" value="로그인">
+	</form>
+
 	<a id="naverLoginLink">네이버 로그인</a>
+
     <script>
         // 네이버 로그인 설정
         window.onload = function(){

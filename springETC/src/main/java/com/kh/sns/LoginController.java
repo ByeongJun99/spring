@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,13 @@ import com.google.gson.JsonParser;
 
 @Controller
 public class LoginController {
+	
+	@RequestMapping("login")
+	public String login(HttpSession session, String nick) {
+		// 로그인할 때 정보를 받아서 세션에 저장하고 chat창으로 보냄
+		session.setAttribute("nick", nick);
+		return "chat";
+	}
 
 	@RequestMapping("/naver-login")
 	public String naverLoginCallback(HttpServletRequest request) {
